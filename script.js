@@ -1,15 +1,23 @@
 var status = "O"
 
 function test(par){
-    console.log(par);
-    console.log(status);
-    if(status == "O"){
-        status = "X";
-    }
-    else{
-        status = "O";
-    }
+    // console.log(par);
+    // console.log(status);
+    
 
     a = document.getElementById(String(par));
-    a.innerHTML = status;
+    if(true)
+    {
+        a.innerText = status;
+
+        if(status == "O"){
+            status = "X";
+        }
+        else{
+            status = "O";
+        }
+    }
+    else{
+        return;
+    }
 }
