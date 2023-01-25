@@ -1,20 +1,19 @@
-var status = "O"
-
+var cream = "O"
 function test(par){
     // console.log(par);
-    // console.log(status);
+    // console.log(cream);
     
 
     a = document.getElementById(String(par));
     if(true)
     {
-        a.innerText = status;
+        a.innerText = cream;
 
-        if(status == "O"){
-            status = "X";
+        if(cream == "O"){
+            cream = "X";
         }
         else{
-            status = "O";
+            cream = "O";
         }
     }
     else{
