@@ -1,65 +1,45 @@
-var cream = "O"
+var turn = 1
 var tic = [0,0,0,0,0,0,0,0,0];
+const winCase = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
 var game = true;
 function test(par){
-    // console.log(par);
-    // console.log(cream);
-    
-
+    if(!game) return;
+    if(tic[par] != 0){
+        return;
+    }
     a = document.getElementById(String(par));
-    if(game)
-    {
-        if(tic[par]==0)
-        {
-            cream =-(cream=="O") ? "X" : "O";
-            a.innerText = cream;
-            tic[par] = cream;
-        }
-        else{
-            console.log("deadlock")
-        }
+    tic[par] = turn;
+    if(tic[par] == 1){
+        a.innerText = "O"; turn = 2;
+    }
+    else{
+        a.innerText = "X"; turn = 1;
+    }
 
-        if(getfail()==0){
-            console.log(("O WIN"));
-            game = false;
-            
-        } 
-        else if(getfail()==1){
-            console.log(("X WIN"));
-            game = false;
-        } 
-
-        if(tic.indexOf(0) == -1){
-            console.log("end");
-            game = false;
+    for(i of winCase){
+        a = getResult(i);
+        if(a==1){
+            console.log(1); game = false;
         }
-    }   
+        else if(a==2){
+            console.log(2); game = false;
+        }
+    }
+
 }
 
-function getfail(){
+function getResult(gameCase){
     if(
-        tic[3]==tic[4]==tic[5] == 'O' ||
-        tic[0]==tic[1]==tic[2] == 'O' ||
-        tic[6]==tic[7]==tic[8] == 'O' ||
-        tic[0]==tic[3]==tic[6] == 'O' ||
-        tic[1]==tic[4]==tic[7] == 'O' ||
-        tic[2]==tic[5]==tic[8] == 'O' ||
-        tic[0]==tic[4]==tic[8] == 'O' ||
-        tic[2]==tic[4]==tic[6] == 'O'
-    )
-    return 0;
+        tic[gameCase[0]] == 1 && tic[gameCase[1]] == 1 && tic[gameCase[2]] == 1
+    ){
+        return 1;
+    }
     else if(
-        tic[0]==tic[1]==tic[2] == 'X' ||
-        tic[3]==tic[4]==tic[5] == 'X' ||
-        tic[6]==tic[7]==tic[8] == 'X' ||
-        tic[0]==tic[3]==tic[6] == 'X' ||
-        tic[1]==tic[4]==tic[7] == 'X' ||
-        tic[2]==tic[5]==tic[8] == 'X' ||
-        tic[0]==tic[4]==tic[8] == 'X' ||
-        tic[2]==tic[4]==tic[6] == 'X'
-    )
-    return 1;
+        tic[gameCase[0]] == 2 && tic[gameCase[1]] == 2 && tic[gameCase[2]] == 2
+    ){
+        return 2;
+    }
     else{
-        return -1;
+        return 0;
     }
 }
