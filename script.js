@@ -2,7 +2,9 @@ var turn = 1
 var tic = [0,0,0,0,0,0,0,0,0];
 const winCase = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
 var game = true;
-
+const winColor = "green"
+const loseColor = "red";
+const winLineColor = "purple";
 
 function test(par){
     if(!game) return;
@@ -30,18 +32,24 @@ function test(par){
         a = getResult(i);
         if(a==1){
             console.log(1); game = false;
-            document.getElementById("turn_X").style.color = "red";
-            document.getElementById("turn_O").style.color = "green";
+            document.getElementById("turn_X").style.color = loseColor;
+            document.getElementById("turn_O").style.color = winColor;
             document.getElementById("turn_O").style.opacity = 1;
             document.getElementById("turn_X").style.opacity = 1;
+            for(j of i){
+                document.getElementById(String(j)).style.color = winLineColor;
+            }
             return;
         }
         else if(a==2){
             console.log(2); game = false;
-            document.getElementById("turn_O").style.color = "red";
-            document.getElementById("turn_X").style.color = "green";
+            document.getElementById("turn_O").style.color = loseColor;
+            document.getElementById("turn_X").style.color = winColor;
             document.getElementById("turn_O").style.opacity = 1;
             document.getElementById("turn_X").style.opacity = 1;
+            for(j of i){
+                document.getElementById(String(j)).style.color = "red";
+            }
             return;
         }
     }
