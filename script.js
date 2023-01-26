@@ -25,7 +25,7 @@ function test(par){
     else{
         a.innerText = "X"; turn = 1;
     }
-
+    
     for(i of winCase){
         a = getResult(i);
         if(a==1){
@@ -44,9 +44,14 @@ function test(par){
             document.getElementById("turn_X").style.opacity = 1;
             return;
         }
-        else if(tic.indexOf(0) == -1){
-            console.log("draw"); game = false; return;
-        }
+    }
+    if(tic.indexOf(0) == -1){
+        console.log("draw"); game = false;
+        document.getElementById("turn_O").style.color = "blue";
+        document.getElementById("turn_X").style.color = "blue";
+        document.getElementById("turn_O").style.opacity = 1;
+        document.getElementById("turn_X").style.opacity = 1;
+         return;
     }
 
 }
