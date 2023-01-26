@@ -6,6 +6,10 @@
     background: #301e4e;
   }
   
+  .main {
+    float:left;
+    padding:1rem;
+  }
   .content {
     font-family: system-ui, serif;
     font-size: 2rem;
@@ -24,7 +28,15 @@
     display : flex;
     justify-content : center;
     align-items : center;
-    font-weight: bold;
+    font-weight:bolder;
     font-family: "Noto Sans KR", sans-serif;
     color : black;
+  }
+
+  #turn_O {
+    opacity: 1;
+  }
+
+  #turn_X {
+    opacity: 0.2;
   }
