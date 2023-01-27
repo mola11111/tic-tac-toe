@@ -48,7 +48,7 @@ function test(par){
             document.getElementById("turn_O").style.opacity = 1;
             document.getElementById("turn_X").style.opacity = 1;
             for(j of i){
-                document.getElementById(String(j)).style.color = "red";
+                document.getElementById(String(j)).style.color = winLineColor;
             }
             return;
         }
@@ -80,8 +80,3 @@ function getResult(gameCase){
     }
 }
 
-function gameInit(){
-    tic = [0,0,0,0,0,0,0,0,0];
-    game = true;
-    document.getElementsByClassName("box").innerText = 0;
-}
