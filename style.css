@@ -2,8 +2,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
     background: #1B334C;
+    min-width: 600px;
+    min-height: 100vh;
     /* background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, purple); */
     /* background: pink; */
   }
@@ -18,7 +19,7 @@
     background: #2C7BA3;
     border-radius: 1rem;
     margin: 15px;
-    padding: 10px;
+    padding: 5px;
   }
   .content {
     font-size: 2rem;
