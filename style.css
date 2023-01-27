@@ -9,12 +9,20 @@
   .main {
     float:left;
     padding:1rem;
+    background: #F6A956;
+    border-radius: 1rem;
+    margin: 15px;
+    padding: 10px;
   }
   .content {
     font-size: 2rem;
-    padding: 1rem;
+    /* padding: 0.5rem; */
     border-radius: 1rem;
     background: #ff6e6c;
+    overflow: hidden;
+  }
+  .line {
+    justify-content: space-between;
   }
 
   .box {
@@ -30,6 +38,13 @@
     font-weight:bolder;
     font-family: "Noto Sans KR", sans-serif;
     color : black;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-out;
+    transition-delay: 0.1ms;
+  }
+  .box:hover {
+    background: #eccda1;
+
   }
 
   #turn_O {
