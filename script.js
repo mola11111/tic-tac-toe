@@ -1,6 +1,7 @@
 var turn = 1;
 var tic = Array(9).fill(0);
 const winCases = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+let current_winCase = Array(3);
 var gameOver = false;
 const winColor = "green";
 const loseColor = "red";
@@ -35,6 +36,7 @@ function toggleTurnDisplay() {
 function checkResult() {
   for (let i of winCases) {
     if (tic[i[0]] === tic[i[1]] && tic[i[1]] === tic[i[2]]) {
+      current_winCase = i;
       return tic[i[0]];
     }
   }
@@ -42,6 +44,7 @@ function checkResult() {
 }
 
 function endGame(result, symbol) {
+  let i;
   if (result === 0) {
     console.log("draw");
     document.getElementById("turn_O").style.color = "blue";
@@ -50,7 +53,7 @@ function endGame(result, symbol) {
     console.log(symbol === "O" ? 1 : 2);
     document.getElementById(`turn_${symbol}`).style.color = winColor;
     document.getElementById(`turn_${(symbol === "O") ? "X" : "O"}`).style.color = loseColor;
-    for (let j of i) {
+    for (let j of current_winCase) {
       document.getElementById(String(j)).style.color = winLineColor;
     }
   }
